@@ -12,7 +12,7 @@ test("it shows two inputs and a button", () => {
   expect(button).toBeInTheDocument();
 });
 
-test("it calls onUserAdd when the form is submitted", () => {
+test("it calls onUserAdd when the form is submitted", async () => {
   // 방식 1(NOT THE BEST IMPLEMENT)
 
   // 컴포넌트 렌더링하자
@@ -26,18 +26,18 @@ test("it calls onUserAdd when the form is submitted", () => {
   const [nameInput, emailInput] = screen.getAllByRole("textbox");
 
   // name을 입력하는 이벤트
-  user.click(nameInput);
-  user.keyboard("jane");
+  await user.click(nameInput);
+  await user.keyboard("jane");
 
   // email을 입력하는 이벤트
-  user.click(emailInput);
-  user.keyboard("jane@naver.com");
+  await user.click(emailInput);
+  await user.keyboard("jane@naver.com");
 
   // 버튼 찾자
   const button = screen.getByRole("button");
 
   // 버튼 클릭하는 이벤트
-  user.click(button);
+  await user.click(button);
 
   // onUserAdd 함수가 name과 email과 함께 호출되는지 확인하자
   expect(argList).toHaveLength(1);
