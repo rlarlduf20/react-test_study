@@ -2,11 +2,14 @@
 
 > Udemy 강의와 함께하는 React test 학습 저장소 입니다.
 
+### 개념에 대한 정리와 내가 이해한 부분('\*' 로 표시)을 구분지어 작성
+
 ## List
 
 - [테스트 작성 Process](#테스트-작성-process)
 - [React Testing Library](#react-testing-library)
 - [Matchers](#matchers)
+- [Mocking](#mocking)
 
 ### 테스트 작성 Process
 
@@ -44,7 +47,14 @@
 - link -> a
 - textbox -> input,type="text
 
-> User Event : 이벤트 발생 시킴
+---
+
+단순히 element를 가지고 오는것은 순서상의 문제나 등등이 있을 수 있어서 특정하게 가져오는 것이 좋다
+
+- input과 label을 연결하고(htmlFor, id) label의 text 값으로 input을 가져온다.
+- getByLabelText(/enter email/i) === (선호)getByRole('textbox', {name: /enter email/i});
+
+  > User Event : 이벤트 발생 시킴
 
 - user.click(element) : 요소를 클릭해라.
 - user.keyboard('asdf') : 'asdf' 라고 타이핑해라.
@@ -71,3 +81,12 @@
 - expect(element).toHaveValue() : input이나 select, textarea가 값을 가지고 있는지
 
   [RTL Matcher함수 확인하기](https://github.com/testing-library/jest-dom#custom-matchers)
+
+### Mocking(Not Real)
+
+    실제로 호출되었을 때는 아무것도 하지 않는 가짜 함수 생성
+    오로지 테스트를 위한 흉내내는 함수
+
+- jest.fn()으로 생성
+- mock 함수에 대한 matcher가 있음
+- \*_실제로 우리는 테스트할 함수를 test내에서 똑같이 작동하게 만들고 그 함수로 테스트해도 된다. 하지만 번거로우니 jest.fn()으로 만들어주는 mock함수 사용하자._
