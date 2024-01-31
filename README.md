@@ -54,7 +54,17 @@
 - input과 label을 연결하고(htmlFor, id) label의 text 값으로 input을 가져온다.
 - getByLabelText(/enter email/i) === (선호)getByRole('textbox', {name: /enter email/i});
 
-  > User Event : 이벤트 발생 시킴
+screen.logTestingPlaygroundURL()
+
+- element를 찾는 query를 쉽게 찾게 해준다.(알려준다.)
+
+role이 겹칠 때 맞는 query를 찾는 것에 집착하지 마라 -> 고유한 값 만들자
+
+1. data-testid : dom에 data-testid 값 부여, test에서 within으로 불러오기(ex)within(screen.getByTestId('users')).getAllByRole('row')
+   (test를 위해 코드를 조작해야하기 때문에 비추천)
+2. container.querySelector()
+
+> User Event : 이벤트 발생 시킴
 
 - user.click(element) : 요소를 클릭해라.
 - user.keyboard('asdf') : 'asdf' 라고 타이핑해라.
@@ -90,3 +100,5 @@
 - jest.fn()으로 생성
 - mock 함수에 대한 matcher가 있음
 - \*_실제로 우리는 테스트할 함수를 test내에서 똑같이 작동하게 만들고 그 함수로 테스트해도 된다. 하지만 번거로우니 jest.fn()으로 만들어주는 mock함수 사용하자._
+
+> 존재하는 모든 컴포넌트들을 테스트해야 하나? 중요한 컴포넌트만 테스트해야 할까?정답은 없다.
