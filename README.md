@@ -2,6 +2,8 @@
 
 > Udemy 강의와 함께하는 React test 학습 저장소 입니다.
 
+> Goal: 학습 완료 후 TDD 프로젝트 해보기
+
 ### 개념에 대한 정리와 내가 이해한 부분('\*' 로 표시)을 구분지어 작성
 
 ## List
@@ -58,11 +60,15 @@ screen.logTestingPlaygroundURL()
 
 - element를 찾는 query를 쉽게 찾게 해준다.(알려준다.)
 
-role이 겹칠 때 맞는 query를 찾는 것에 집착하지 마라 -> 고유한 값 만들자
+role이 겹칠 때 맞는 query를 찾는 것에 집착하지 마라 + role을 찾는데 많은 시간을 쓰지 말자 -> 고유한 값 만들거나(data-testid) 찾자(querySelector())
 
 1. data-testid : dom에 data-testid 값 부여, test에서 within으로 불러오기(ex)within(screen.getByTestId('users')).getAllByRole('row')
    (test를 위해 코드를 조작해야하기 때문에 비추천)
-2. container.querySelector()
+2. container.querySelector() : render된 컴포넌트는 항상 div로 감싸져 있기 때문에 해당 div를 { container }로 가져옴 -> 해당 container에서 querySelector를 사용해 원하는 요소를 선택(에러가 발생하지만 이건 선호하지 않는다는 에러 메시지)
+
+screen.debug()
+
+- 디버깅
 
 > User Event : 이벤트 발생 시킴
 
