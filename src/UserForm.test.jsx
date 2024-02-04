@@ -62,7 +62,7 @@ test("emties the two inputs when form is submitted", async () => {
   await user.click(emailInput);
   await user.keyboard("jane@naver.com");
 
-  user.click(button);
+  await user.click(button);
 
   expect(nameInput).toHaveValue("");
   expect(emailInput).toHaveValue("");
