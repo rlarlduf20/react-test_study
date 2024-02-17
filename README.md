@@ -12,6 +12,7 @@
 - [React Testing Library](#react-testing-library)
 - [Matchers](#matchers)
 - [Mocking](#mocking)
+- [참고자료](#참고자료)
 
 ### 테스트 작성 Process
 
@@ -45,9 +46,16 @@
 
 - heading -> h1, h2, h3, h4, h5, h6
 - list -> ul, li
+- listitem -> li
 - button -> button
 - link -> a
 - textbox -> input,type="text
+- contentinfo -> footer
+- banner -> header
+- img -> img
+- checkbox -> input,type="checkbox"
+- spinbutton -> input,type="number"
+- radio -> input,type="radio"
 
 ---
 
@@ -75,6 +83,10 @@ screen.debug()
 - user.click(element) : 요소를 클릭해라.
 - user.keyboard('asdf') : 'asdf' 라고 타이핑해라.
 - user.keyboard('{Enter}') : '엔터' 키 타이핑해라.
+
+button에 텍스트를 사용하지 않는다면(ex) svg파일)
+
+- aria-label 사용
 
 ### Matchers
 
@@ -108,3 +120,12 @@ screen.debug()
 - \*_실제로 우리는 테스트할 함수를 test내에서 똑같이 작동하게 만들고 그 함수로 테스트해도 된다. 하지만 번거로우니 jest.fn()으로 만들어주는 mock함수 사용하자._
 
 > 존재하는 모든 컴포넌트들을 테스트해야 하나? 중요한 컴포넌트만 테스트해야 할까?정답은 없다.
+
+### 참고자료
+
+\*RTL-Book
+
+> npx rtl-book serve roles-notes.js
+
+- roles-notes에 rtl-book에 대한 내용을 넣어서 로컬 서버에 띄워줌
+- 테스트 관련해서 공부한 내용 정리하기 좋음(코드 작성하고 코드 블록, 텍스트 추가, 편집 가능하고 이에 대한 테스트도 바로 진행)
